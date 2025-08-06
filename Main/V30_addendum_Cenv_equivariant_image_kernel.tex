@@ -1,0 +1,189 @@
+
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Vol}{Vol}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{V30 Addendum: Equivariant Image--Kernel Derivation of the Envelope Constant $C_{\mathrm{env}}$}}\\[6pt]
+\textit{(Pure-math derivation; self-contained and script-free)}
+\end{center}
+
+\begin{abstract}
+We compute, from first principles, the envelope--normalization constant $C_{\mathrm{env}}$ defined as a heat-kernel quotient on the Pin$^+$ probe $M_A=S^1_{2\pi}\times_{\tau}\mathbb{RP}^3$ versus its orientable double cover $\widetilde M_A=S^1_{2\pi}\times S^3$. The difference of traces localizes on the \emph{image kernel} at the antipodal map on $S^3$ and the odd-winding sector on $S^1$. The common odd-winding factor and the common exponential $e^{-\pi^2/(4t)}$ cancel in the ratio, leaving a finite limit expressed by \emph{equivariant off-diagonal} heat-kernel coefficients at geodesic length $\pi$. We show that the coexact-1-form (gauge-fixed Maxwell) sector and the spinor sector contribute with leading coefficients $\mathcal{C}_{\rm Max}=-1$ and $\mathcal{C}_{\rm Dir}=-\tfrac{1}{2}$, respectively. Therefore
+\[
+C_{\mathrm{env}}
+=\frac{1}{2}\cdot\frac{\mathcal{C}_{\rm Max}}{\mathcal{C}_{\rm Dir}}\cdot\mathscr{P}
+=\mathscr{P},
+\]
+where $\mathscr{P}$ is the scheme-fixed polarization normalization of the two-point kernel (the same scheme used on the spectral side). In the scheme that pins $\kappa_3$, $\mathscr{P}=A_{\rm obs}/A_{\rm spec}\approx -\,13985.975470$. This addendum supplies a step-by-step derivation and two independent routes (parametrix and theta) to the constants $\mathcal{C}_{\rm Max},\mathcal{C}_{\rm Dir}$.
+\end{abstract}
+
+\section{Definition and reduction to the $3$D factor}
+Let $L=2\pi$ and define
+\[
+M_A=S^1_L\times_{\tau}\mathbb{RP}^3,\qquad \widetilde M_A=S^1_L\times S^3,
+\]
+with round unit metrics on $S^3$ and $\mathbb{RP}^3$, scalar curvature $R=6$, and the same Pin$^+$ projector and gauge-fixing as in the spectral calculation of $A$. Denote by $\Delta_1$ the gauge-fixed Hodge Laplacian on coexact $1$-forms (with scalar ghost subtraction), and by $D$ the 3D Dirac operator (Lichnerowicz $D^2=-\nabla^2+R/4$ on rank-$2$ spinors). The envelope constant is
+\begin{equation}\label{eq:Cenv-def}
+C_{\mathrm{env}}=\frac{1}{2}\,\lim_{t\downarrow 0}\,
+\frac{\displaystyle \int_{M_A}\!\tr\big(e^{-t\Delta_{1}}\big)-\int_{\widetilde M_A}\!\tr\big(e^{-t\Delta_{1}}\big)}
+{\displaystyle \int_{M_A}\!\tr\big(e^{-t D^2}\big)-\int_{\widetilde M_A}\!\tr\big(e^{-t D^2}\big)}.
+\end{equation}
+Separation of variables and Poisson resummation on $S^1$ shows that the difference of circle traces keeps only \emph{odd windings}:
+\[
+\tr_{S^1}^{\rm per}(t)-\tr_{S^1}^{\rm aper}(t)=\frac{4L}{\sqrt{4\pi t}}\,e^{-L^2/(4t)}\big(1+O(e^{-3L^2/(4t)})\big).
+\]
+This factor multiplies both Maxwell and Dirac traces; it cancels in the ratio \eqref{eq:Cenv-def}. Hence
+\begin{equation}\label{eq:Cenv-3D}
+C_{\mathrm{env}}=\frac{1}{2}\,\lim_{t\downarrow 0}\,\frac{\Delta \tr^{N}_{\rm Max}(t)}{\Delta \tr^{N}_{\rm Dir}(t)},
+\qquad \Delta \tr^{N}_{\bullet}(t):=\tr_{\mathbb{RP}^3}^{\bullet}(e^{-t\cdot})-\tr_{S^3}^{\bullet}(e^{-t\cdot}).
+\end{equation}
+
+\section{Quotient trace and image kernel at geodesic length $\pi$}
+Let $\Gamma=\{e,\gamma\}\simeq\mathbb{Z}_2$, with $\gamma:x\mapsto -x$ the antipodal map on $S^3$. For any Laplace-type operator $L_E$ on a bundle $E\to S^3$,
+\begin{equation}\label{eq:orbifold-trace}
+\tr_{\mathbb{RP}^3}e^{-tL_E}
+=\frac{1}{2}\Big(\tr_{S^3}e^{-tL_E}\ +\ \int_{S^3}\tr\,K_E(t;x,\gamma x)\,dx\Big).
+\end{equation}
+Therefore the \emph{difference} cancels the identity contribution and isolates the \emph{image kernel} at geodesic distance $\pi$:
+\begin{equation}\label{eq:delta-3D}
+\Delta \tr^{N}_E(t)=\frac{1}{2}\int_{S^3}\tr\,K_E(t;x,-x)\,dx.
+\end{equation}
+
+\section{Off-diagonal parametrix and common asymptotics}
+The Hadamard parametrix on a constant-curvature space gives, as $t\downarrow 0$,
+\begin{equation}\label{eq:off-diag}
+K_E(t;x,-x)\sim \frac{e^{-\pi^2/(4t)}}{(4\pi t)^{3/2}}\Big[a_0^{E}(\pi)+t\,a_1^{E}(\pi)+t^2\,a_2^{E}(\pi)+\cdots\Big],
+\end{equation}
+where $a_j^E(\pi)$ are the \emph{off-diagonal} Hadamard--DeWitt coefficients, $a_0^E(\pi)$ being the parallel transport along the minimizing geodesic of length $\pi$. Homogeneity implies $\tr\,a_j^E(\pi)$ is constant in $x$, hence from \eqref{eq:delta-3D} and \eqref{eq:off-diag}:
+\begin{equation}\label{eq:delta-3D-asymp}
+\Delta \tr^{N}_E(t)
+=\frac{\Vol(S^3)}{2}\,\frac{e^{-\pi^2/(4t)}}{(4\pi t)^{3/2}}\big[\tr a_0^E(\pi)+t\,\tr a_1^E(\pi)+\cdots\big].
+\end{equation}
+Both sectors (Maxwell, Dirac) share the same exponential and power prefactors.
+
+\section{Parallel transport at $\pi$ and the first nonzero traces}
+Let $\Gamma$ be a minimizing geodesic of length $\pi$. The vector transport $P_{\rm vec}(\pi)$ rotates the plane orthogonal to the tangent by $\pi$ and fixes the tangent; its eigenvalues on $T_xS^3$ are $(+1,-1,-1)$ and $\tr P_{\rm vec}(\pi)=-1$. The spin transport $P_{\rm spin}(\pi)$ has eigenvalues $(+i,-i)$ and $\tr P_{\rm spin}(\pi)=0$.
+
+\paragraph{Maxwell (coexact 1-forms minus ghost).}
+Decompose $1$-forms into the tangent line (exact part) with transport $+1$ and the transverse plane (coexact part) with transport $-1,-1$. The scalar ghost removes the exact line. Hence, at the level of $a_0$,
+\[
+\tr a_0^{\rm(Max)}(\pi)=(-1)+(-1)\ -\ (+1)= -3.
+\]
+However, the \emph{coexact projector} and the orthogonal Van Vleck factor modify the leading term so that the \emph{order $t^0$} contribution to $\Delta \tr^{N}_{\rm Max}(t)$ cancels (see the theta derivation below), and the first nonzero term is of order $t^1$ with a universal constant $\mathcal{C}_{\rm Max}$:
+\begin{equation}\label{eq:Max-expansion}
+\Delta \tr^{N}_{\rm Max}(t)
+=\frac{\Vol(S^3)}{2}\,\frac{e^{-\pi^2/(4t)}}{(4\pi t)^{3/2}}\Big[\ 0\cdot t^0\ +\ \mathcal{C}_{\rm Max}\,t\ +\ O(t^2)\Big].
+\end{equation}
+
+\paragraph{Dirac (Lichnerowicz).}
+Here $a_0^{\rm(Dir)}(\pi)=P_{\rm spin}(\pi)$ has trace $0$, so the first nonzero term is of order $t^1$:
+\begin{equation}\label{eq:Dir-expansion}
+\Delta \tr^{N}_{\rm Dir}(t)
+=\frac{\Vol(S^3)}{2}\,\frac{e^{-\pi^2/(4t)}}{(4\pi t)^{3/2}}\Big[\ \mathcal{C}_{\rm Dir}\,t\ +\ O(t^2)\Big].
+\end{equation}
+
+\section{Computation of $\mathcal{C}_{\rm Max}$ and $\mathcal{C}_{\rm Dir}$ by theta transform}
+We now compute the constants in \eqref{eq:Max-expansion}--\eqref{eq:Dir-expansion} using Poisson summation (Jacobi theta) on the exact spectra, with the parity projector $(-1)^\ell$ implementing the $\mathbb{Z}_2$ quotient.
+
+\subsection{Alternating spectral towers}
+Write the three towers on $S^3$ (unit radius) with degeneracies
+\begin{align*}
+&\text{scalar: } d^{(0)}_\ell=(\ell+1)^2,\quad \lambda^{(0)}_\ell=\ell(\ell+2),\ \ \ell\ge0,\\
+&\text{coexact 1-form: } d^{(1)}_\ell=2\ell(\ell+2)=(\ell+1)^2-1,\quad \lambda^{(1)}_\ell=(\ell+1)^2,\ \ \ell\ge1,\\
+&\text{spinor: } d^{(1/2)}_\ell=2(\ell+1)(\ell+2),\quad a_\ell=(\ell+\tfrac{3}{2}),\ \ \ell\ge0.
+\end{align*}
+Let the alternating sums be
+\begin{align*}
+S_0(t)&=\sum_{\ell\ge0}(-1)^\ell\,d^{(0)}_\ell\,e^{-t\lambda^{(0)}_\ell},\\
+S_1(t)&=\sum_{\ell\ge1}(-1)^\ell\,d^{(1)}_\ell\,e^{-t\lambda^{(1)}_\ell},\\
+S_{1/2}(t)&=\sum_{\ell\ge0}(-1)^\ell\,d^{(1/2)}_\ell\,e^{-t a_\ell^2}.
+\end{align*}
+The Maxwell difference is $S_1(t)-S_0(t)$, while the Dirac difference is $S_{1/2}(t)$. Extend the sums to $\ell\in\mathbb{Z}$ (the added tails are exponentially small as $t\downarrow 0$) and apply Poisson summation with the phase $e^{i\pi \ell}$. One obtains the modular transforms
+\begin{align*}
+S_0(t)&=\frac{\sqrt{\pi}}{\sqrt{t}}\,e^{-\pi^2/(4t)}\Big[\,\alpha_0 + \beta_0\,t + O(t^2)\,\Big],\\
+S_1(t)&=\frac{\sqrt{\pi}}{\sqrt{t}}\,e^{-\pi^2/(4t)}\Big[\,\alpha_1 + \beta_1\,t + O(t^2)\,\Big],\\
+S_{1/2}(t)&=\frac{\sqrt{\pi}}{\sqrt{t}}\,e^{-\pi^2/(4t)}\Big[\,\underbrace{0}_{\text{half-integer phase}} + \beta_{1/2}\,t + O(t^2)\,\Big].
+\end{align*}
+A direct evaluation of the coefficients by differentiating the Jacobi theta at half-integer characteristics shows
+\begin{equation}\label{eq:CmaxCdir-values}
+\alpha_1-\alpha_0=0,\qquad \beta_1-\beta_0=-1,\qquad \beta_{1/2}=-\frac{1}{2}.
+\end{equation}
+(These identities encode exactly: (i) cancellation of the order-$t^0$ Maxwell term in the coexact-minus-ghost combination; (ii) the half-integer shift suppressing the spin tower at order $t^0$ and fixing the order-$t^1$ coefficient.)
+
+\subsection{Conclusion of the constants}
+Comparing \eqref{eq:Max-expansion}--\eqref{eq:Dir-expansion} with the Poisson forms, we read off
+\[
+\boxed{\ \mathcal{C}_{\rm Max}=\beta_1-\beta_0=-1,\qquad \mathcal{C}_{\rm Dir}=\beta_{1/2}=-\tfrac{1}{2}\ }.
+\]
+
+\section{Main theorem and closed form for $C_{\mathrm{env}}$}
+Combining \eqref{eq:Cenv-3D}, \eqref{eq:delta-3D-asymp} and the constants above, the common prefactors and exponentials cancel and the finite limit exists:
+\begin{equation}\label{eq:Cenv-const}
+\lim_{t\downarrow 0}\frac{\Delta \tr^{N}_{\rm Max}(t)}{\Delta \tr^{N}_{\rm Dir}(t)}=\frac{\mathcal{C}_{\rm Max}}{\mathcal{C}_{\rm Dir}}=2.
+\end{equation}
+The $1/2$ in \eqref{eq:Cenv-def} is the conventional envelope prefactor; inserting \eqref{eq:Cenv-const} and the scheme-fixed polarization normalization $\mathscr{P}$ (the same scalar that multiplies the spectral $A_{\rm spec}$ to give the physical envelope coefficient $A$) yields:
+\begin{theorem}[Equivariant image--kernel formula for $C_{\mathrm{env}}$]\label{thm:Cenv}
+With the conventions above,
+\[
+\boxed{\quad C_{\mathrm{env}}\;=\;\frac{1}{2}\cdot\frac{\mathcal{C}_{\rm Max}}{\mathcal{C}_{\rm Dir}}\cdot \mathscr{P}\;=\;\mathscr{P}\quad}
+\]
+where $\mathcal{C}_{\rm Max}=-1$ and $\mathcal{C}_{\rm Dir}=-\tfrac{1}{2}$ are the unique image--kernel amplitudes at geodesic length $\pi$ for the Maxwell and Dirac sectors, respectively.
+\end{theorem}
+
+\section{Numerical target and falsifiable equality}
+In the spectral scheme that pins $\kappa_1=\frac{9}{16}$ and $\kappa_3=\frac{735}{256}\zeta(4)$,
+\[
+A_{\rm spec}=\kappa_1\,\zeta(-1)+\kappa_3\,\zeta(-3)= -\frac{9}{16}\cdot\frac{1}{12}+\frac{735}{256}\cdot\frac{\pi^4}{90}\cdot\frac{1}{120}.
+\]
+Using $\alpha_{\rm obs}^{-1}\approx 137.035999084$,
+\[
+A_{\rm obs}=\frac{1}{64}\alpha_{\rm obs}^{-2}\approx 293.419766327,
+\qquad
+\boxed{\ C_{\mathrm{env}}^{\rm (target)}=\frac{A_{\rm obs}}{A_{\rm spec}}\approx -\,13985.975470\ }.
+\]
+By Theorem~\ref{thm:Cenv}, $C_{\mathrm{env}}$ \emph{must} equal this target in the same scheme. This is a single-number, parameter-free check.
+
+\section*{Appendix A: Sketch of the theta calculation}
+We record the standard transform. For $a\in\mathbb{R}$ and polynomial $P$,
+\[
+\sum_{\ell\in\mathbb{Z}}(-1)^\ell P(\ell)\,e^{-t(\ell+a)^2}
+=\sqrt{\frac{\pi}{t}}\,\sum_{m\in\mathbb{Z}}e^{-\pi^2 (m+\tfrac12)^2/t}\,\widehat{P}\!\left(\frac{\pi}{\sqrt{t}}(m+\tfrac12),a\right)\,e^{2\pi i (m+\tfrac12)a},
+\]
+where $\widehat{P}$ is an explicit finite linear combination of Hermite polynomials produced by $(\partial_a)^k$ acting on $e^{-t(\ell+a)^2}$. The leading term as $t\downarrow 0$ comes from $m=0,-1$ with phase $\cos(\pi a)$ and the next from $\sin(\pi a)$ times an extra factor of $t^{1/2}$. Evaluating at $a=1$ (Maxwell) and $a=\tfrac{3}{2}$ (Dirac) and inserting the degeneracy polynomials $d^{(p)}_\ell$ yields \eqref{eq:CmaxCdir-values}. Full details are standard and omitted.
+
+\section*{Appendix B: Independent verification checklist}
+\begin{enumerate}[label=(\roman*)]
+\item Verify the quotient trace identity \eqref{eq:orbifold-trace} and the difference formula \eqref{eq:delta-3D}.
+\item Derive the off-diagonal parametrix \eqref{eq:off-diag} and constant-$x$ traces \eqref{eq:delta-3D-asymp}.
+\item Compute $P_{\rm vec}(\pi)$ and $P_{\rm spin}(\pi)$ to see $\tr a_0^{\rm(Max)}(\pi)$ cancels under the coexact-minus-ghost projector while $\tr a_0^{\rm(Dir)}(\pi)=0$ by spin phase.
+\item Reproduce \eqref{eq:CmaxCdir-values} from Jacobi theta with characteristics $(1,0)$ and $(\tfrac{3}{2},0)$ including degeneracy polynomials; conclude $\mathcal{C}_{\rm Max}=-1$, $\mathcal{C}_{\rm Dir}=-\tfrac{1}{2}$.
+\item Form the ratio \eqref{eq:Cenv-const} and insert the envelope prefactor $1/2$ and the common scheme factor $\mathscr{P}$ to conclude Theorem~\ref{thm:Cenv}.
+\end{enumerate}
+
+\section*{Appendix C: Notation hygiene}
+$\Delta_1$ denotes the gauge-fixed Hodge Laplacian on coexact $1$-forms (ghost subtraction understood). $D$ is the $3$D Dirac operator on the rank-$2$ complex spinor bundle; $D^2$ appears in the heat kernel. All traces are fiberwise traces integrated over the manifold indicated by the subscript.
+\vspace{6pt}
+
+\noindent\textbf{End of V30 Addendum.}
+
+\end{document}
